@@ -893,8 +893,8 @@ class MainOperations:
                             )
 
                         # TODO Make this part useful! (Abstract visualizer to check status)
+                        q, val = pt.q_no, str(pt.val)
                         if detected:
-                            q, val = pt.q_no, str(pt.val)
                             cv2.putText(
                                 final_marked,
                                 val,
@@ -913,8 +913,9 @@ class MainOperations:
                             )
                             multi_roll = multi_marked_l and "Roll" in str(q)
                             # blackVals.append(boxval0)
-                        # else:
-                        # whiteVals.append(boxval0)
+                        else:
+                            omr_response[q] = q_block.empty_val
+                            # whiteVals.append(boxval0)
 
                         total_q_box_no += 1
                         # /for qbox_pts
